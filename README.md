@@ -205,36 +205,7 @@ UPDATE users SET role = 'admin' WHERE email = 'test_admin@example.com';
      - Authenticated with **hr** or **admin** role: `200 OK` (returns specific user details)
 
 ## Project Structure
-.
-├── app/
-│   ├── api/
-│   │   ├── __init__.py
-│   │   ├── auth.py         # Authentication endpoints
-│   │   ├── main.py         # FastAPI app & router incl.
-│   │   └── users.py        # User management endpoints
-│   ├── core/
-│   │   ├── __init__.py
-│   │   ├── auth.py         # JWT utilities
-│   │   ├── config.py       # Settings from .env
-│   │   └── deps.py         # Auth & RBAC dependencies
-│   ├── db/
-│   │   ├── __init__.py
-│   │   ├── base_class.py   # Declarative base & fields
-│   │   ├── models.py       # SQLAlchemy models
-│   │   └── session.py      # Engine & session setup
-│   └── schemas/
-│       ├── __init__.py
-│       ├── token.py        # Pydantic JWT schemas
-│       └── user.py         # Pydantic user schemas
-├── alembic/
-│   ├── versions/           # Migration scripts
-│   └── env.py              # Alembic env config
-├── alembic.ini             # Alembic settings
-├── tests/                  # Unit & integration tests
-│   └── __init__.py
-├── .env                    # Environment variables (ignored)
-├── .gitignore              # Git ignore rules
-└── requirements.txt        # Project dependencies
+<pre lang="markdown"> ```text . ├── app/ │ ├── api/ │ │ ├── __init__.py │ │ ├── auth.py # Authentication related endpoints (login, token) │ │ ├── main.py # Main FastAPI application instance and router inclusion │ │ └── users.py # User management endpoints (create, retrieve) │ ├── core/ │ │ ├── __init__.py │ │ ├── auth.py # JWT token creation and validation utilities │ │ ├── config.py # Application settings loaded from .env │ │ └── deps.py # FastAPI dependencies for authentication and RBAC │ ├── db/ │ │ ├── __init__.py │ │ ├── base_class.py # SQLAlchemy declarative base and common model fields │ │ ├── models.py # SQLAlchemy ORM models (e.g., User) │ │ └── session.py # SQLAlchemy engine and session setup │ └── schemas/ │ ├── __init__.py │ ├── token.py # Pydantic schemas for JWT tokens │ └── user.py # Pydantic schemas for user data validation ├── alembic/ # Alembic migration environment │ ├── versions/ # Migration scripts │ └── env.py # Alembic environment configuration ├── alembic.ini # Alembic configuration file ├── tests/ # Unit and integration tests (empty for now) │ └── __init__.py ├── .env # Environment variables (IGNORED by Git) ├── .gitignore # Specifies files/directories to ignore in Git └── requirements.txt # Project dependencies ``` </pre>
 
 
 ## Contributing
