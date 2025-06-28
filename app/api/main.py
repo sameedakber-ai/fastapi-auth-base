@@ -33,5 +33,5 @@ async def read_root():
     """
     return {"message": "Welcome to the Learnobots Job Portal API!"}
 
-app.include_router(auth_router)
-app.include_router(user_router)
+app.include_router(auth_router, prefix=settings.API_V1_STR)
+app.include_router(user_router, prefix=settings.API_V1_STR)

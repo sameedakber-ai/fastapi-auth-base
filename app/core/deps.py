@@ -13,7 +13,7 @@ def get_current_active_admin(current_user: UserSchema = Depends(get_current_user
     return current_user
 
 def get_current_active_hr(current_user: UserSchema = Depends(get_current_user)) -> UserSchema:
-    if not current_user.role != 'hr' and not current_user.role != 'admin':
+    if current_user.role not in ['hr', 'admin']:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Not enough permissions")
     return current_user
 
